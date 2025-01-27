@@ -1,22 +1,20 @@
+import 'package:demo/screens/setting/setting.dart';
+import 'package:demo/screens/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MaterialApp(
-    home: Text("Hello World"),
-  ));
+  runApp(MyApp());
 }
 
-class MyWidget extends StatelessWidget {
-  final bool loading;
-
-  const MyWidget(this.loading, {super.key});
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    if (loading) {
-      return CircularProgressIndicator();
-    } else {
-      return Text("Hello World");
-    }
+    return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/': (context) => SplashScreen(),
+        '/settings': (context) => SettingsScreen(),
+      },
+    );
   }
 }
